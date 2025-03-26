@@ -1,84 +1,42 @@
-'use client';
-import { useState } from 'react';
+// app/legal/page.tsx
+import Link from 'next/link';
 
-export default function ContactPage() {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [feedback, setFeedback] = useState('');
-
-  const handleSubmit = async (event: React.FormEvent) => {
-    event.preventDefault();
-    setIsSubmitting(true);
-    setFeedback('');
-
-    try {
-      // APIルートへ送信
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, message }),
-      });
-
-      if (response.ok) {
-        setFeedback('送信が完了しました。ありがとうございます！');
-        // フォームの内容をリセット
-        setName('');
-        setEmail('');
-        setMessage('');
-      } else {
-        setFeedback('送信に失敗しました。再度お試しください。');
-      }
-    } catch (error) {
-      console.error('Error:', error);
-      setFeedback('エラーが発生しました。');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
+export default function LegalPage() {
   return (
     <section>
-      <h1>お問い合わせ</h1>
-      <p>ご意見やご質問など、お気軽にご連絡ください。</p>
-      <form
-        onSubmit={handleSubmit}
-        style={{ marginTop: '1rem', display: 'flex', flexDirection: 'column', gap: '1rem', maxWidth: '400px' }}
-      >
-        <label>
-          お名前（必須）
-          <input
-            type="text"
-            required
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            style={{ width: '100%', padding: '0.5rem', marginTop: '0.25rem' }}
-          />
-        </label>
-        <label>
-          メールアドレス（必須）
-          <input
-            type="email"
-            required
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            style={{ width: '100%', padding: '0.5rem', marginTop: '0.25rem' }}
-          />
-        </label>
-        <label>
-          メッセージ
-          <textarea
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-            style={{ width: '100%', height: '100px', padding: '0.5rem', marginTop: '0.25rem' }}
-          />
-        </label>
-        <button type="submit" disabled={isSubmitting}>
-          {isSubmitting ? '送信中...' : '送信'}
-        </button>
-      </form>
-      {feedback && <p style={{ marginTop: '1rem' }}>{feedback}</p>}
+      <h1>特定商取引法に基づく表示</h1>
+      <p>
+        「特定商取引に関する法律」第 11 条（通信販売についての広告）に基づき以下に明示いたします。
+      </p>
+
+      <h2>販売業者</h2>
+      <p>城田剛（個人事業主）</p>
+
+      <h2>代表責任者</h2>
+      <p>城田 剛</p>
+
+      <h2>所在地</h2>
+      <p>
+        消費者からの請求によって、広告表示事項を記載した書面又は電子メール等を「遅滞なく」提供
+      </p>
+
+      <h2>お問い合わせ先</h2>
+      <p>
+        <Link href="/contact">お問い合わせはこちら</Link>
+      </p>
+
+      <h2>販売価格</h2>
+      <p>各アプリの販売ページに記載の通り</p>
+
+      <h2>お支払方法</h2>
+      <p>
+        SaaSの場合は月額課金、買い切りの場合はクレジットカードまたは銀行振込など
+      </p>
+
+      <h2>返品・交換・キャンセル等</h2>
+      <p>
+        商品の性質上、お客様都合による返品はご容赦下さい。
+      </p>
     </section>
   );
 }
