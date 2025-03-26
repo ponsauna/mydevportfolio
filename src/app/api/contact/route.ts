@@ -3,8 +3,9 @@ import { createClient } from '@supabase/supabase-js';
 
 // 環境変数からURLとService Role Keyを読み込む
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const supabaseServiceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
-const supabase = createClient(supabaseUrl, supabaseServiceRoleKey);
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
+const supabase = createClient(supabaseUrl, supabaseAnonKey);
+
 
 export async function POST(request: Request) {
   try {
