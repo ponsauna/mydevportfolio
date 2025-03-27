@@ -2,7 +2,7 @@
 import Link from 'next/link';
 
 const mockProjects = [
-  { slug: 'auto-media-sorter', title: '縦横自動仕分けツール', description: 'スマホで撮った動画や画像をアップロードするだけ！「縦動画・横動画・縦画像・横画像」に自動で仕分けします。' },
+  { slug: 'auto-media-sorter', title: '縦横自動仕分けツール(買い切り980円（税抜）)', description: 'スマホで撮った動画や画像をアップロードするだけ！「縦動画・横動画・縦画像・横画像」に自動で仕分けします。' },
 
 ];
 
