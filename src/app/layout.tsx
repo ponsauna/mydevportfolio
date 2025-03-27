@@ -43,7 +43,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           }}
         >
           <div className="container">
-            <p>© 2023 My Portfolio. All rights reserved.</p>
+            <p>© 2025 My Portfolio. All rights reserved.</p>
           </div>
         </footer>
       </body>

@@ -6,9 +6,7 @@ export default function HomePage() {
       <p>
         ここでは、私が個人で開発したプロジェクトの一覧や、プロフィール、お問い合わせフォームなどを公開しています。
       </p>
-      <p style={{ marginTop: '1rem' }}>
-        下記リンクから、各ページをご覧ください。
-      </p>
+      
     </section>
   );
 }
