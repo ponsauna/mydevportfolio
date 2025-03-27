@@ -2,8 +2,9 @@
 import Link from 'next/link';
 
 const mockProjects = [
-  { slug: 'todo-app', title: 'ToDoアプリ', description: 'シンプルなTODO管理アプリ' },
-  { slug: 'weather-checker', title: '天気情報チェッカー', description: '天気APIを利用した天気表示アプリ' },
+  { slug: 'auto-media-sorter', title: '縦横自動仕分けツール', description: 'スマホで撮った動画や画像をアップロードするだけ。
+'「縦動画・横動画・縦画像・横画像」に自動で仕分けします。' },
+
 ];
 
 export default function ProjectsListPage() {
