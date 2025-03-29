@@ -39,46 +39,68 @@ export default function ContactPage() {
   };
 
   return (
-    <section>
-      <h1>お問い合わせ</h1>
-      <p>ご意見やご質問など、お気軽にご連絡ください。</p>
-      <form
-        onSubmit={handleSubmit}
-        style={{ marginTop: '1rem', display: 'flex', flexDirection: 'column', gap: '1rem', maxWidth: '400px' }}
-      >
-        <label>
-          お名前（必須）
-          <input
-            type="text"
-            required
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            style={{ width: '100%', padding: '0.5rem', marginTop: '0.25rem' }}
-          />
-        </label>
-        <label>
-          メールアドレス（必須）
-          <input
-            type="email"
-            required
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            style={{ width: '100%', padding: '0.5rem', marginTop: '0.25rem' }}
-          />
-        </label>
-        <label>
-          メッセージ
-          <textarea
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-            style={{ width: '100%', height: '100px', padding: '0.5rem', marginTop: '0.25rem' }}
-          />
-        </label>
-        <button type="submit" disabled={isSubmitting}>
-          {isSubmitting ? '送信中...' : '送信'}
-        </button>
-      </form>
-      {feedback && <p style={{ marginTop: '1rem' }}>{feedback}</p>}
-    </section>
+    // <main>タグに "container" クラスを適用することで、左右に余白が入ります
+    <main className="container">
+      <section>
+        <h1>お問い合わせ</h1>
+        <p>ご意見やご質問など、お気軽にご連絡ください。</p>
+        <form
+          onSubmit={handleSubmit}
+          style={{
+            marginTop: '1rem',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '1rem',
+            maxWidth: '400px',
+          }}
+        >
+          <label>
+            お名前（必須）
+            <input
+              type="text"
+              required
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              style={{
+                width: '100%',
+                padding: '0.5rem',
+                marginTop: '0.25rem',
+              }}
+            />
+          </label>
+          <label>
+            メールアドレス（必須）
+            <input
+              type="email"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              style={{
+                width: '100%',
+                padding: '0.5rem',
+                marginTop: '0.25rem',
+              }}
+            />
+          </label>
+          <label>
+            メッセージ
+            <textarea
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              style={{
+                width: '100%',
+                height: '100px',
+                padding: '0.5rem',
+                marginTop: '0.25rem',
+              }}
+            />
+          </label>
+          <button type="submit" disabled={isSubmitting}>
+            {isSubmitting ? '送信中...' : '送信'}
+          </button>
+        </form>
+        {feedback && <p style={{ marginTop: '1rem' }}>{feedback}</p>}
+      </section>
+    </main>
   );
 }

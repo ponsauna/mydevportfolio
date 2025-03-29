@@ -1,4 +1,3 @@
-// app/layout.tsx
 import './globals.css';
 import { ReactNode } from 'react';
 import Link from 'next/link';
@@ -12,9 +11,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="ja">
       <body>
-        <header style={{ borderBottom: '1px solid #ccc', padding: '1rem 0' }}>
-          <nav className="container" aria-label="Main navigation">
-            <ul style={{ display: 'flex', gap: '1rem', listStyle: 'none' }}>
+        {/* -- ヘッダー（任意） -- */}
+        <header>
+          <nav className="header-nav" aria-label="Main navigation">
+            <ul>
               <li>
                 <Link href="/">Home</Link>
               </li>
@@ -31,20 +31,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           </nav>
         </header>
 
-        <main className="container" style={{ marginTop: '2rem' }}>
-          {children}
-        </main>
+        {/* -- ページごとのコンテンツ -- */}
+        {children}
 
-        <footer
-          style={{
-            borderTop: '1px solid #ccc',
-            padding: '1rem 0',
-            marginTop: '2rem',
-          }}
-        >
-          <div className="container">
-            <p>© 2025 My Portfolio. All rights reserved.</p>
-          </div>
+        {/* -- フッター（任意） -- */}
+        <footer>
+          <p>© 2025 My Portfolio. All rights reserved.</p>
         </footer>
       </body>
     </html>

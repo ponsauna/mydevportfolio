@@ -1,55 +1,179 @@
-/* リセット系(必要に応じてカスタマイズしてください) */
+/* ---------------------------------------------------------------------------
+   リセット & ベーススタイル
+---------------------------------------------------------------------------- */
+
+/* Google Fonts から Noto Sans を読み込み */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
+
+/* 全要素の余白リセット */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* ページ全体のフォントや配色 */
+/* html, body のデフォルト余白リセット + ベース設定 */
 html, body {
-  font-family: system-ui, sans-serif;
+  margin: 0;
+  padding: 0;
+  font-family: 'Noto Sans', system-ui, sans-serif;
   background-color: #ffffff;
   color: #333333;
   line-height: 1.5;
   font-size: 16px;
 }
 
-/* アクセシブルなフォーカスの視認性向上 */
-:focus {
-  outline: 2px solid #0070f3;
-  outline-offset: 2px;
-}
-
-/* ページレイアウトのための簡単な例 */
+/* ---------------------------------------------------------------------------
+   コンテナ
+---------------------------------------------------------------------------- */
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 1rem;
+  padding: 1rem; /* 本文周りの余白 */
 }
 
-/* 見出しの余白など */
-h1, h2, h3 {
-  margin-bottom: 0.5rem;
-  font-weight: bold;
+/* ---------------------------------------------------------------------------
+   ヘッダー・ナビゲーション
+---------------------------------------------------------------------------- */
+.header-nav {
+  padding: 1rem 0 1rem 1rem; /* 左にパディング */
+  border-bottom: 1px solid #ccc;
 }
 
-/* ボタンの共通スタイル例 */
-button {
-  padding: 0.6rem 1.2rem;
-  border: none;
-  cursor: pointer;
-  font-size: 1rem;
-  border-radius: 4px;
+.header-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
 }
-button:hover {
+
+/* ---------------------------------------------------------------------------
+   ヒーローセクション
+---------------------------------------------------------------------------- */
+.hero-section {
+  width: 100vw;
+  height: 100vh;
+  background: url('/hero.png') center/cover no-repeat; /* ヒーロー画像 */
+  position: relative;
+}
+
+.hero-text {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  font-size: 2.5rem;
+
+  /* 矢印などを縦に配置 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ヒーローの矢印（棒＋円） */
+.hero-arrow {
+  position: relative;
+  width: 2px;   /* 棒の幅 */
+  height: 40px; /* 棒の高さ */
+  margin-top: 1rem;
+}
+
+/* 棒を::beforeで描画 */
+.hero-arrow::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 100%;
+  background-color: #fff;
   opacity: 0.8;
 }
 
-/* リンクのデザイン */
-a {
-  color: #0070f3;
-  text-decoration: none;
+/* 円のアニメーション */
+.hero-arrow .circle {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 12px;
+  height: 12px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: moveCircle 3s ease-in-out infinite;
 }
-a:hover {
-  text-decoration: underline;
+
+@keyframes moveCircle {
+  0% {
+    transform: translate(-50%, 0);
+  }
+  50% {
+    transform: translate(-50%, 40px); /* 棒の高さ分移動 */
+  }
+  100% {
+    transform: translate(-50%, 0);
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Worksセクション
+---------------------------------------------------------------------------- */
+.works-section {
+  padding: 2rem 0;
+  background-color: #f7f7f7;
+}
+
+.works-section h2 {
+  margin-bottom: 0.5rem;
+}
+
+.works-section p {
+  margin-bottom: 2rem;
+  color: #666;
+}
+
+/* グリッドでカードを並べる */
+.works-grid {
+  display: grid;
+  gap: 2rem;
+  /* カードの最小幅を広げればカードが大きくなる */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+/* カードのスタイル */
+.work-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden; 
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  text-align: center; /* 画像やタイトル、テキストを中央寄せ */
+}
+
+/* 画像を横幅100%で表示 */
+.work-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* タイトル・詳細に余白 */
+.work-card h3 {
+  margin: 1rem 0 0.5rem;
+  font-size: 1.25rem;
+}
+.work-card p {
+  margin: 0 1rem 1rem;
+  color: #555;
+}
+
+/* ---------------------------------------------------------------------------
+   フッター
+---------------------------------------------------------------------------- */
+footer {
+  border-top: 1px solid #ccc;
+  padding: 1rem 0;
+  text-align: center;
 }
