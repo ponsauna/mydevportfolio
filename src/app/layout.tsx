@@ -1,3 +1,4 @@
+// src/app/layout.tsx
 import './globals.css';
 import { ReactNode } from 'react';
 import Link from 'next/link';
@@ -11,7 +12,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="ja">
       <body>
-        {/* -- ヘッダー（任意） -- */}
         <header>
           <nav className="header-nav" aria-label="Main navigation">
             <ul>
@@ -19,7 +19,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 <Link href="/">Home</Link>
               </li>
               <li>
-                <Link href="/contact">お問い合わせ</Link>
+                {/* お問い合わせを Home ページ内のアンカーに */}
+                <Link href="/#contact">お問い合わせ</Link>
               </li>
               <li>
                 <Link href="/legal">特定商取引法</Link>
@@ -31,10 +32,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           </nav>
         </header>
 
-        {/* -- ページごとのコンテンツ -- */}
         {children}
 
-        {/* -- フッター（任意） -- */}
         <footer>
           <p>© 2025 My Portfolio. All rights reserved.</p>
         </footer>
