@@ -36,14 +36,61 @@ html, body {
    ヘッダー・ナビゲーション
 ---------------------------------------------------------------------------- */
 .header-nav {
-  padding: 1rem 0 1rem 1rem; /* 左にパディング */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1rem;
   border-bottom: 1px solid #ccc;
 }
 
-.header-nav ul {
-  list-style: none;
+/* PC用のナビゲーションリンク */
+.nav-links {
   display: flex;
   gap: 1rem;
+  list-style: none;
+}
+
+/* ハンバーガーアイコン（初期状態は非表示） */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  border-radius: 2px;
+}
+
+/* モバイル（768px 以下）の場合 */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+  
+  /* モバイルではデフォルトで非表示、open クラスが付いたときに表示 */
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: #fff;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-top: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+  }
+  
+  .nav-links.open {
+    display: flex;
+  }
 }
 
 /* ---------------------------------------------------------------------------
@@ -52,7 +99,7 @@ html, body {
 .hero-section {
   width: 100vw;
   height: 100vh;
-  background: url('/hero.png') center/cover no-repeat; /* ヒーロー画像 */
+  background: url('/hero.png') center/cover no-repeat;
   position: relative;
 }
 
@@ -62,30 +109,20 @@ html, body {
   left: 50%;
   transform: translateX(-50%);
   color: #fff;
-
-  /* 1行で表示するために nowrap */
   white-space: nowrap;
-
-  /* はみ出し防止のため、画面幅に応じて文字サイズを可変に */
   font-size: clamp(1rem, 8vw, 2.5rem);
-
-  /* 縦に矢印を並べるために flex を使う */
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* justify-content: center; // 必要なら追加 */
 }
 
-
-/* ヒーローの矢印（棒＋円） */
 .hero-arrow {
   position: relative;
-  width: 2px;   /* 棒の幅 */
-  height: 40px; /* 棒の高さ */
+  width: 2px;
+  height: 40px;
   margin-top: 1rem;
 }
 
-/* 棒を::beforeで描画 */
 .hero-arrow::before {
   content: '';
   position: absolute;
@@ -98,7 +135,6 @@ html, body {
   opacity: 0.8;
 }
 
-/* 円のアニメーション */
 .hero-arrow .circle {
   position: absolute;
   top: 0;
@@ -113,15 +149,9 @@ html, body {
 }
 
 @keyframes moveCircle {
-  0% {
-    transform: translate(-50%, 0);
-  }
-  50% {
-    transform: translate(-50%, 40px); /* 棒の高さ分移動 */
-  }
-  100% {
-    transform: translate(-50%, 0);
-  }
+  0% { transform: translate(-50%, 0); }
+  50% { transform: translate(-50%, 40px); }
+  100% { transform: translate(-50%, 0); }
 }
 
 /* ---------------------------------------------------------------------------
@@ -141,36 +171,32 @@ html, body {
   color: #666;
 }
 
-/* グリッドでカードを並べる */
 .works-grid {
   display: grid;
   gap: 2rem;
-  /* カードの最小幅を広げればカードが大きくなる */
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 }
 
-/* カードのスタイル */
 .work-card {
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 8px;
-  overflow: hidden; 
+  overflow: hidden;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  text-align: center; /* 画像やタイトル、テキストを中央寄せ */
+  text-align: center;
 }
 
-/* 画像を横幅100%で表示 */
 .work-card img {
   width: 100%;
   height: auto;
   display: block;
 }
 
-/* タイトル・詳細に余白 */
 .work-card h3 {
   margin: 1rem 0 0.5rem;
   font-size: 1.25rem;
 }
+
 .work-card p {
   margin: 0 1rem 1rem;
   color: #555;
@@ -180,16 +206,16 @@ html, body {
    Aboutセクション
 ---------------------------------------------------------------------------- */
 .about-section {
-  padding: 2rem 0; /* 上下の余白を設定 */
-  background-color: #fff; /* 背景色はお好みで変更 */
+  padding: 2rem 0;
+  background-color: #fff;
 }
 
 .about-section h2 {
-  margin-bottom: 0.5rem; /* 見出し下の余白 */
+  margin-bottom: 0.5rem;
 }
 
 .about-section p {
-  margin-bottom: 1rem;   /* 段落下の余白 */
+  margin-bottom: 1rem;
   color: #666;
 }
 

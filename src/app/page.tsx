@@ -1,9 +1,8 @@
-// src/app/page.tsx
 'use client';
 import React, { useState } from "react";
 
 export default function HomePage() {
-  // Contactフォーム用のstate（必要な場合のみ）
+  // Contactフォーム用の state
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
@@ -16,7 +15,6 @@ export default function HomePage() {
     setFeedback('');
 
     try {
-      // APIルートへ送信
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -25,7 +23,6 @@ export default function HomePage() {
 
       if (response.ok) {
         setFeedback('送信が完了しました。ありがとうございます！');
-        // フォームの内容をリセット
         setName('');
         setEmail('');
         setMessage('');
@@ -60,7 +57,11 @@ export default function HomePage() {
           <div className="works-grid">
             <div className="work-card">
               <img src="/neppashi.png" alt="Work 1" />
-              <h3>熱波師.com</h3>
+              <h3>
+                <a href="https://www.neppashi.com/" target="_blank" rel="noopener noreferrer">
+                  熱波師.com
+                </a>
+              </h3>
               <p>
                 全国の熱波師を検索・応援するWebsite<br />
                 WixStudioで作成
@@ -68,15 +69,23 @@ export default function HomePage() {
             </div>
             <div className="work-card">
               <img src="/SaunaBlog.png" alt="Work 2" />
-              <h3>サウナブログ</h3>
+              <h3>
+                <a href="https://www.tsuyoshishirota.com/" target="_blank" rel="noopener noreferrer">
+                  サウナブログ
+                </a>
+              </h3>
               <p>サウナレビューブログ</p>
             </div>
             <div className="work-card">
               <img src="/videosort.png" alt="Work 3" />
-              <h3>動画自動仕分け</h3>
+              <h3>
+                <a href="https://www.youtube.com/watch?v=fstQ4b94xe0" target="_blank" rel="noopener noreferrer">
+                  動画自動仕分け
+                </a>
+              </h3>
               <p>
                 複数のメディアを自動仕分け<br />
-                Pythonで構築・Youtube横動画と縦動画に便利
+                Pythonで構築・Youtube編集前の動画整理の際に使用可能
               </p>
             </div>
           </div>
@@ -122,11 +131,7 @@ export default function HomePage() {
                   required
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  style={{
-                    width: '100%',
-                    padding: '0.5rem',
-                    marginTop: '0.25rem',
-                  }}
+                  style={{ width: '100%', padding: '0.5rem', marginTop: '0.25rem' }}
                 />
               </label>
               <label>
@@ -136,11 +141,7 @@ export default function HomePage() {
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  style={{
-                    width: '100%',
-                    padding: '0.5rem',
-                    marginTop: '0.25rem',
-                  }}
+                  style={{ width: '100%', padding: '0.5rem', marginTop: '0.25rem' }}
                 />
               </label>
               <label>
@@ -148,12 +149,7 @@ export default function HomePage() {
                 <textarea
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
-                  style={{
-                    width: '100%',
-                    height: '100px',
-                    padding: '0.5rem',
-                    marginTop: '0.25rem',
-                  }}
+                  style={{ width: '100%', height: '100px', padding: '0.5rem', marginTop: '0.25rem' }}
                 />
               </label>
               <button type="submit" disabled={isSubmitting}>
