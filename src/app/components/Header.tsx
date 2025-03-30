@@ -27,9 +27,6 @@ export default function Header() {
         <li>
           <Link href="/legal" onClick={handleClose}>特定商取引法</Link>
         </li>
-        <li>
-          <Link href="/projects" onClick={handleClose}>個人開発まとめ</Link>
-        </li>
       </ul>
     </nav>
   );
