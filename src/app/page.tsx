@@ -108,7 +108,7 @@ export default function HomePage() {
     <section className="youtube-section">
   <div className="container">
     <h2>YouTube Channel</h2>
-    <p>「PuchiTech_Pon」では、日常や仕事をちょっと便利にするミニ技術を紹介しています。</p>
+    <p>プロダクトスペシャリストの仕事内容と個人開発の記録をYoutubeで紹介しています！</p>
     <a
       href="https://www.youtube.com/@PuchiTech_Pon/videos"
       target="_blank"
