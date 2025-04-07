@@ -104,6 +104,29 @@ export default function HomePage() {
           </p>
         </div>
       </section>
+    　{/* YouTubeチャンネル紹介セクション */}
+    <section className="youtube-section">
+  <div className="container">
+    <h2>YouTube Channel</h2>
+    <p>「PuchiTech_Pon」では、日常や仕事をちょっと便利にするミニ技術を紹介しています。</p>
+    <a
+      href="https://www.youtube.com/@PuchiTech_Pon/videos"
+      target="_blank"
+      rel="noopener noreferrer"
+      style={{
+        display: 'inline-block',
+        marginTop: '1rem',
+        textDecoration: 'none',
+      }}
+    >
+      <img
+        src="/youtube-banner.png" // チャンネルバナー画像を public フォルダに置いておく
+        alt="PuchiTech_Pon"
+        style={{ maxWidth: '100%', borderRadius: '8px' }}
+      />
+    </a>
+  </div>
+</section>
 
       {/* Contact セクション */}
       <section id="contact" className="contact-section">
