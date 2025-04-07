@@ -219,7 +219,7 @@ html, body {
   color: #666;
 }
 .youtube-section {
-  padding: 4rem 1rem;
+  padding: 1rem 1rem;
   background-color: #f8f9fa;
   text-align: center;
 }
@@ -243,12 +243,75 @@ html, body {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
 
+.sns-section {
+  padding: 4rem 1rem;
+  background-color: #f1f1f1;
+  text-align: center;
+}
+
+.sns-links {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.sns-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+  transition: transform 0.2s ease;
+}
+
+.sns-link img {
+  width: 24px;
+  height: 24px;
+}
+
+.sns-link:hover {
+  transform: scale(1.05);
+  color: #000;
+}
 
 /* ---------------------------------------------------------------------------
    フッター
 ---------------------------------------------------------------------------- */
-footer {
-  border-top: 1px solid #ccc;
-  padding: 1rem 0;
+
+
+.footer {
+  padding: 2rem 1rem;
+  background-color: #f1f1f1;
   text-align: center;
+}
+
+.sns-links {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.sns-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+  transition: transform 0.2s ease;
+}
+
+.sns-link img {
+  width: 24px;
+  height: 24px;
+}
+
+.sns-link:hover {
+  transform: scale(1.05);
+  color: #000;
 }

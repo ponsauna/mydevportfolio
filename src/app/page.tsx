@@ -128,6 +128,7 @@ export default function HomePage() {
   </div>
 </section>
 
+
       {/* Contact セクション */}
       <section id="contact" className="contact-section">
         <main className="container">
